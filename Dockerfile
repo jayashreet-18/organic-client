@@ -2,7 +2,7 @@ FROM node as build
 WORKDIR /app
 
 # install and app dependencies
-COPY package*.json .
+COPY package*.json ./app/
 RUN npm install
 COPY . .
 RUN npm run prod
