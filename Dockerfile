@@ -3,7 +3,7 @@ WORKDIR /app
 
 # install and app dependencies
 COPY package*.json ./app/
-RUN npm install
+
 COPY . .
 RUN npm run prod
 
