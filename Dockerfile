@@ -1,11 +1,12 @@
-FROM node
+FROM node as build
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
+
 # install and app dependencies
-COPY package.json /app/package.json
+COPY package*.json .
 RUN npm install
-RUN npm install -g @angular/cli
-# add app
-COPY . /app
-# start app
-CMD ng serve --host 0.0.0.0
+COPY . .
+RUN npm run prod
+
+FROM nginx
+COPY .nginx/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist/organic-client/ /usr/share/nginx/html
