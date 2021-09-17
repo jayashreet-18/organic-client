@@ -10,12 +10,17 @@
 #FROM nginx
 #COPY .nginx/nginx.conf /etc/nginx/nginx.conf
 #COPY --from=build /app/dist/organic-client/ /usr/share/nginx/html
-FROM nginx:alpine
-COPY /dist/organic-client /usr/share/nginx/html
+# stage 1
 
-RUN npm install
-RUN npm install -g @angular/cli@7.3.9
-COPY . /app
-CMD ng serve --host 0.0.0.0
+FROM node:alpine AS my-app-build
+WORKDIR /app
+COPY . .
+RUN npm ci && npm run build
+
+# stage 2
+
+FROM nginx:alpine
+COPY --from=my-app-build /app/dist/app-to-run-inside-docker /usr/share/nginx/html
+EXPOSE 80
 
 EXPOSE 80
