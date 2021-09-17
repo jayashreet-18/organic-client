@@ -13,4 +13,9 @@
 FROM nginx:alpine
 COPY /dist/organic-client /usr/share/nginx/html
 
+RUN npm install
+RUN npm install -g @angular/cli@7.3.9
+COPY . /app
+CMD ng serve --host 0.0.0.0
+
 EXPOSE 80
