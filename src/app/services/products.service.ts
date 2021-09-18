@@ -14,14 +14,14 @@ export class ProductsService {
 
   addProduct(obj):Observable<object>{
    
-     return this.http.post("http://localhost:4500/products/add",obj);
+     return this.http.post("http://13.88.1.52:4500/products/add",obj);
   }
 
 
   
   updateProduct(obj):Observable<object>{
    
-    return this.http.post("http://localhost:4500/products/update",obj);
+    return this.http.post("http://13.88.1.52:4500/products/update",obj);
  }
 
 
@@ -31,15 +31,15 @@ export class ProductsService {
         'Content-Type':  'application/json'
         })
       }
-    return this.http.delete("http://localhost:4500/products/remove/"+obj,this.httpOptions);
+    return this.http.delete("http://13.88.1.52:4500/products/remove/"+obj,this.httpOptions);
  }
 
   public getProducts():Observable<object>{
-    return this.http.get("http://localhost:4500/products/all");
+    return this.http.get("http://13.88.1.52:4500/products/all");
   }
 
   public getProducts2(pattern:string):Observable<object>{
-    return this.http.get("http://localhost:4500/products/all/"+pattern);
+    return this.http.get("http://13.88.1.52:4500/products/all/"+pattern);
   }
 
 

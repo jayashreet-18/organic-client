@@ -38,7 +38,7 @@ export class LogService {
         'Content-Type':  'application/json'
         })
     }
-    return this.http.post("http://localhost:4500/users/signup",obj,this.httpOptions);
+    return this.http.post("http://13.88.1.52:4500/users/signup",obj,this.httpOptions);
   }
 
   //To check avalailability of mail id and username
@@ -58,7 +58,7 @@ export class LogService {
         'Authorization': authstring
       })
     }
-    return this.http.post("http://localhost:4500/users/signin",
+    return this.http.post("http://13.88.1.52:4500/users/signin",
     {username:username,password:password,usertype:"user"},
     this.httpOptions);
   }

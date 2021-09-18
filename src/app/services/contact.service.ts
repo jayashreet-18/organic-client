@@ -15,22 +15,22 @@ httpOptions;
         'Content-Type':  'application/json'
         })
       }
-     return this.http.post("http://localhost:4500/messages/all",obj,this.httpOptions)
+     return this.http.post("http://13.88.1.52:4500/messages/all",obj,this.httpOptions)
   } 
   
   getMessagesByUsername():Observable<object>{
     let user=sessionStorage.getItem("username");
-    return this.http.get("http://localhost:4500/messages/all/"+user);
+    return this.http.get("http://13.88.1.52:4500/messages/all/"+user);
   }
 
   getMessagesByReciever():Observable<object>{
     let user=sessionStorage.getItem("username");
-    return this.http.get("http://localhost:4500/messages/received/"+user);
+    return this.http.get("http://13.88.1.52:4500/messages/received/"+user);
   }
   
   getMessages():Observable<object>{
   
-    return this.http.get("http://localhost:4500/messages/all/");
+    return this.http.get("http://13.88.1.52:4500/messages/all/");
   }
 
 }
