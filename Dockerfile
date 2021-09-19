@@ -21,5 +21,5 @@ RUN npm ci && npm run build
 
 FROM nginx:alpine
 COPY --from=my-app-build /app/dist/organic-client /usr/share/nginx/html
-EXPOSE 4500
+EXPOSE 4200
 
