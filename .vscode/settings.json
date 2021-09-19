@@ -1,8 +1,0 @@
-{
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}",
-        ".vscode{,/**}"
-    ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/657b1746-4cf8-49f9-9d87-38d07c83a5ae/resourceGroups/today/providers/Microsoft.Web/sites/ang-org",
-    "appService.deploySubpath": "."
-}
